@@ -1,14 +1,19 @@
-<h1>Registro de Mascota</h1>
-<form action="/registro" method="post">
+@model netdemo20252.Models.Mascota
+
+<h2>Registro de Mascota</h2>
+
+<form asp-action="Registro" method="post">
     <label>Nombre:</label>
-    <input type="text" name="nombre"><br>
+    <input asp-for="Nombre" />
+    <br />
+    <label>Raza:</label>
+    <input asp-for="Raza" />
+    <br />
     <label>Edad:</label>
-    <input type="number" name="edad"><br>
-    <label>Tipo:</label>
-    <select name="tipo">
-        <option>Perro</option>
-        <option>Gato</option>
-        <option>Otro</option>
-    </select><br>
+    <input asp-for="Edad" type="number" />
+    <br />
+    <label>Propietario:</label>
+    <input asp-for="Propietario" />
+    <br />
     <button type="submit">Registrar</button>
 </form>

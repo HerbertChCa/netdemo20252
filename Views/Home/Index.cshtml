@@ -1,40 +1,35 @@
-﻿@model netdemo.Models.Cliente
-@using System.Collections.Generic;
+﻿@model netdemo20252.Models.Mascota
 
-@{
-    ViewData["Title"] = "Home Page";
-    IEnumerable<netdemo.Models.Curso> listCursos = new List<Curso>();
-    listCursos = @Model.Cursos;
-}
+<h1>Registro de Mascotas</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Alumnos de Progra I hot reload</h1>
+<form asp-action="Index" method="post">
     <div>
-        <form asp-action="Registrar" asp-controller="Home" method="post">  
-            <input type="text"  name="nombre" placeholder="Enter your name" />
-            <button type="submit">Submit</button>
-        </form>
-        <form asp-action="RegistrarCliente" asp-controller="Home" method="post">
-            <input type="text" name="Nombre" placeholder="Enter your name"/>
-            <span asp-validation-for="Nombre" class="text-danger"></span>
-            <input type="text" name="Apellido" placeholder="Enter your last name"/>
-            <span asp-validation-for="Apellido" class="text-danger"></span>
-            <input type="email" name="Email" placeholder="Enter your email"/>
-            <span asp-validation-for="Email" class="text-danger"></span>
-            <button type="submit">Submit</button>
-        </form>
-        @foreach(Curso cur in listCursos){
-            <div>
-                <h3>@cur.Nombre</h3>
-                <p>@cur.Descripcion</p>
-            </div>
-        }
-        
+        <label>Nombre de la mascota:</label>
+        <input asp-for="Nombre" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
     </div>
-    <p>@ViewData["mensaje1"]</p>
-    <p>@ViewData["mensaje2"]</p>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+    <div>
+        <label>Raza:</label>
+        <input asp-for="Raza" />
+        <span asp-validation-for="Raza" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Edad:</label>
+        <input asp-for="Edad" type="number" />
+        <span asp-validation-for="Edad" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Propietario:</label>
+        <input asp-for="Propietario" />
+        <span asp-validation-for="Propietario" class="text-danger"></span>
+    </div>
+
+    <br />
+    <button type="submit">Registrar</button>
+</form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
